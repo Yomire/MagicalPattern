@@ -42,7 +42,7 @@ public class ConverSationManager : MonoBehaviour
     }
     public void NextAni3Method()
     {
-        ani.SetBool("2AniBool", false);
+        ani.SetBool("2AniBool", true);
         ani.SetBool("3AniBool", true);
     }
 }

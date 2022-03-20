@@ -142,7 +142,7 @@ public class CheckMateS : MonoBehaviour
     }
     public void VSLuke()
     {
-        BishopObj.SetActive(true);
+        LukeObj.SetActive(true);
         LS.LukeEnable();
     }
     public void VSLastBattle()

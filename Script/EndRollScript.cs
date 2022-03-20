@@ -18,7 +18,7 @@ public class EndRollScript : MonoBehaviour
     private Coroutine endRollCoroutine;
     public string Flag;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(Flag == "EndRoll")
         {

@@ -6,8 +6,8 @@ using System.IO;
 public class SceneControl : MonoBehaviour
 {
     public Info1 info;
-    public string Flag;
-    public GameObject Obj;
+    public string Flag, OnceFlag;
+    public GameObject Obj, RepeateBlockObj;
     public AudioSource SEASource;
     void Start()
     {
@@ -66,6 +66,7 @@ public class SceneControl : MonoBehaviour
             info.CheckmateFlag = "On";
             JsonData.Save(info, "scoreData");
         }
+        OnceFlag = null;
     }
     public void SceneNextMethod()
     {
@@ -88,156 +89,228 @@ public class SceneControl : MonoBehaviour
     }
     public void Epi1After()
     {
-        if (info.KeyPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.KeyPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("KeyPattern", 0.5f);
-        }
+            if (info.KeyPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.KeyPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("KeyPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }        
     }
     public void KeyPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.KeyPFlag = "On";
-        JsonData.Save(info, "scoreData");
-        //Debug.Log(info.KeyPFlag);
+        if(OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.KeyPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            //Debug.Log(info.KeyPFlag);
+            OnceFlag = "On";
+        }
     }
     public void Epi2After()
     {
-        if (info.FishPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.FishPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("FishPattern", 0.5f);
-        }
+            if (info.FishPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.FishPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("FishPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void FishPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.FishPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if (OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.FishPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }            
     }
     public void Epi3After()
     {
-        if (info.GekiPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.GekiPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("GekiPattern", 0.5f);
-        }
+            if (info.GekiPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.GekiPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("GekiPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void GekiPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.GekiPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if(OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.GekiPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }        
     }
     public void Epi4After()
     {
-        if (info.ShieldPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.ShieldPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("ShieldPattern", 0.5f);
-        }
+            if (info.ShieldPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.ShieldPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("ShieldPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void ShieldPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.ShieldPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if(OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.ShieldPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }        
     }
     public void Epi5After()
     {
-        if (info.ResonancePFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.ResonancePFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("ResonancePattern", 0.5f);
-        }
+            if (info.ResonancePFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.ButterflyPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("ButterflyPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }                 
     }
     public void ResonancePatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.ResonancePFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if(OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.ResonancePFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }        
     }
     public void Epi6After()
     {
-        if (info.ButterflyPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.ButterflyPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("ButterflyPattern", 0.5f);
-        }
+            if (info.ButterflyPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.ResonancePFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("ResonancePattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void ButterflyPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.ButterflyPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if (OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.ButterflyPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }           
     }
     public void Epi7After()
     {
-        if (info.HummerPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.HummerPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("HammerPattern", 0.5f);
-        }
+            if (info.HummerPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.HummerPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("HammerPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void HammerPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.HummerPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if (OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.HummerPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }            
     }
     public void Epi8After()
     {
-        if (info.CoinPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.CoinPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("CoinPattern", 0.5f);
-        }
+            if (info.CoinPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.CoinPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("CoinPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void CoinPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.CoinPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if (OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.CoinPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }            
     }
     public void Epi9After()
     {
-        if (info.PhoenixPFlag == "On")
+        if (OnceFlag == null)
         {
-            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        }
-        if (info.PhoenixPFlag != "On")
-        {
-            FadeManager.Instance.LoadScene("PhoenixPattern", 0.5f);
-        }
+            if (info.PhoenixPFlag == "On")
+            {
+                FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            }
+            if (info.PhoenixPFlag != "On")
+            {
+                FadeManager.Instance.LoadScene("PhoenixPattern", 0.5f);
+            }
+            OnceFlag = "On";
+        }            
     }
     public void PhoenixPatternGet()
     {
-        FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
-        info.PhoenixPFlag = "On";
-        JsonData.Save(info, "scoreData");
+        if (OnceFlag == null)
+        {
+            FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
+            info.PhoenixPFlag = "On";
+            JsonData.Save(info, "scoreData");
+            OnceFlag = "On";
+        }            
     }
 }
