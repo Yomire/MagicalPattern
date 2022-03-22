@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     public int score = 0, GetExp, AddExp, GiveExp, TotalExpPoint;
     public Text scoreLabel, scoreLabel2, scoreLabel3, GetExpLabel, TotalExpLabel, scoreLabelSnap;
     public Info1 info;
-    public string Flag;
+    public string Flag, EndlessFlag;
     public AudioSource ScoreASource;
     void Start()
     {
@@ -90,44 +90,47 @@ public class ScoreManager : MonoBehaviour
     }
     public void ScoreSaveMethod()
     {
-        //ResultMethod();
-        if (File.Exists(Application.persistentDataPath + "/" + "scoreData" + ".json"))
+        if(EndlessFlag == "On")
         {
-            info = JsonData.Load<Info1>("scoreData");            
-        }
-        if (score >= info.EScore1st)
-        {
-            //Debug.Log("test");
-            info.EScore3rd = info.EScore2nd;
-            Invoke("ESRanking2ndSetMethodA", 0.01f);
-            Invoke("ESRanking1stSetMethodA", 0.02f);
-            Invoke("FlagChangeGetExp", 0.1f);
-        }
-        else if (score < info.EScore1st)
-        {
-            if (score >= info.EScore2nd)
+            //ResultMethod();
+            if (File.Exists(Application.persistentDataPath + "/" + "scoreData" + ".json"))
+            {
+                info = JsonData.Load<Info1>("scoreData");
+            }
+            if (score >= info.EScore1st)
             {
                 //Debug.Log("test");
                 info.EScore3rd = info.EScore2nd;
-                Invoke("ESRanking2ndSetMethodB", 0.01f);
+                Invoke("ESRanking2ndSetMethodA", 0.01f);
+                Invoke("ESRanking1stSetMethodA", 0.02f);
                 Invoke("FlagChangeGetExp", 0.1f);
             }
-            else if(score < info.EScore2nd)
+            else if (score < info.EScore1st)
             {
-                if (score >= info.EScore3rd)
+                if (score >= info.EScore2nd)
                 {
                     //Debug.Log("test");
-                    info.EScore3rd = score;
+                    info.EScore3rd = info.EScore2nd;
+                    Invoke("ESRanking2ndSetMethodB", 0.01f);
                     Invoke("FlagChangeGetExp", 0.1f);
-                    //JsonData.Save(info, "scoreData");
                 }
-                else if (score < info.EScore3rd)
+                else if (score < info.EScore2nd)
                 {
-                    //Debug.Log("test");
-                    Invoke("FlagChangeGetExp", 0.1f);
+                    if (score >= info.EScore3rd)
+                    {
+                        //Debug.Log("test");
+                        info.EScore3rd = score;
+                        Invoke("FlagChangeGetExp", 0.1f);
+                        //JsonData.Save(info, "scoreData");
+                    }
+                    else if (score < info.EScore3rd)
+                    {
+                        //Debug.Log("test");
+                        Invoke("FlagChangeGetExp", 0.1f);
+                    }
                 }
-            }            
-        }
+            }
+        }        
     }
     public void ESRanking2ndSetMethodA()
     {
