@@ -90,7 +90,11 @@ public class ScoreManager : MonoBehaviour
     }
     public void ScoreSaveMethod()
     {
-        if(EndlessFlag == "On")
+        if (EndlessFlag != "On")
+        {
+            FlagChangeGetExp();
+        }
+        if (EndlessFlag == "On")
         {
             //ResultMethod();
             if (File.Exists(Application.persistentDataPath + "/" + "scoreData" + ".json"))
