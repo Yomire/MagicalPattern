@@ -6,6 +6,7 @@ using Fungus;
 public class LockPattern : MonoBehaviour
 {
     //[
+    public AdsLoadScript AdsLS;
     public string input, Epi9Flag, ResonanceFlag;
     public GameObject LineParent;
     public GameObject PanelResetPos;
@@ -868,6 +869,11 @@ public class LockPattern : MonoBehaviour
     {
         MonaSoulAni.enabled = true;
         HeartAni.enabled = true;
+        AdsLS.EpiFlagOn();
+        Invoke("HeatAniPlay", 0.1f);
+    }
+    public void HeatAniPlay()
+    {
         HeartAni.Play("HeartAni", 0, 0);
     }
 }
