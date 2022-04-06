@@ -192,7 +192,7 @@ public class SceneControl : MonoBehaviour
     {
         if (OnceFlag == null)
         {
-            if (info.ResonancePFlag == "On")
+            if (info.ButterflyPFlag == "On")
             {
                 FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
             }
@@ -217,7 +217,7 @@ public class SceneControl : MonoBehaviour
     {
         if (OnceFlag == null)
         {
-            if (info.ButterflyPFlag == "On")
+            if (info.ResonancePFlag == "On")
             {
                 FadeManager.Instance.LoadScene("HomeVer3", 0.5f);
             }
