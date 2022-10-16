@@ -11,9 +11,7 @@ https://game-creators.camp/@yomire_430
 Android 7.0以上
 
 # Release
-現在（2022年3月）、GooglePlayConsoleの審査待ちです。
-
-そのため、2022年4月までにAndroid版をリリース予定。
+2022年4月
 
 # Note
 このリポジトリは、MgicalPattern開発における自作スクリプトのみ公開しております。
